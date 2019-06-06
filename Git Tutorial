@@ -30,7 +30,7 @@ git branch "name" : creates a new branch
 
 git branch checkout "name" : change the branch
 
-
+yep
 
 to avoid setting the username and the password everytime a push is called: 
 https://help.github.com/en/articles/caching-your-github-password-in-git
