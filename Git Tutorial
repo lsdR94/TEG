@@ -26,6 +26,12 @@ git remote set-url origin "url" : set the path of our repo to commit the changes
 
 git push origin master : to commit the changes into the github server (first push)
 
+git branch "name" : creates a new branch
+
+git branch checkout "name" : change the branch
+
+
+
 to avoid setting the username and the password everytime a push is called: 
 https://help.github.com/en/articles/caching-your-github-password-in-git
 
