@@ -30,12 +30,16 @@ git branch "name" : creates a new branch
 
 git branch checkout "name" : change the branch
 
+<<<<<<< HEAD
 git merge "name of the branch" : merge the branch into the original branch (master). In order to do that, the mastar branch must be highlighted
 
 
 
 
 
+=======
+yep
+>>>>>>> basemap_functions
 
 to avoid setting the username and the password everytime a push is called: 
 https://help.github.com/en/articles/caching-your-github-password-in-git
