@@ -1,43 +1,145 @@
-Instalación de conda
--
-Update de conda
+====================
+Conda installation
+====================
+Update conda
 conda update --prefix /home/usuario/anaconda3 anaconda
 
-Ambiente de programación actualizado
+=========================
+Environments management
+=========================
+
+Make an env based in the conda "base" environment (conda update)
 conda create -n nombre_env python=3.7 anaconda
 
-Instalación de segyio  (en 32 bits no funciona pip install segyio)
+Show a list of envs 
+conda info --envs // conda env list
+
+Show a list of the environment's package
+conda list -n myenv // if the environment is active 
+
+Delete an environment
+conda remove --name myenv --all
+
+Clone an environment
+conda create --name myclone --clone myenv
+
+=======================================
+Installation of modules and libraries
+=======================================
+
+Segyio installation  (the pip install method doesn't work in 32 bits structures)
+===================================================================================
 pip install Cmake
 pip install numpy
 pip install setuptools
 pip install setuptools-scm
-*Instalación en ambiente base
+
+** base environment
 git clone https://github.com/equinor/segyio
 mkdir segyio/build
 cd segyio/build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=~/
 make
 make install
-*Instalación dentro del ambiente
+
+** Inside an environment
 git clone https://github.com/equinor/segyio
 mkdir segyio/build
 cd segyio/build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=~/anaconda3/envs/nombre_env
 make
 make install
-*Añadir segyio a la lista de paquetes
+
+** Add Segyio to the list of packages
 pip install segyio
 
-Instalación de Bokeh
+
+Bokeh installation
+====================
 pip install bokeh
 
-Instalación de Holoviews
+Holoviews installation
+========================
 pip install "holoviews[recommended]"
 
-Kernel para el JNTK
+Kernel for the JNTK     (kernel prevent the JNBK to search complements outside the environment)
+=====================
 python3 -m ipykernel install --user --name nombre_env
 
-Lista de paquetes compilados
+Pytest installation
+=====================
+pip install pytest
+
+
+===============================
+List of the compiled packages
+===============================
 pip freeze -l > requirements.txt
 
 
+=========================
+Git and version control
+=========================
+
+Configuration of git
+git config --global user.name "name"
+git config --global user.email "luisdarc@gmail.com"
+
+Set the git path
+cd /path
+git init
+
+Important commands to master:
+================================
+git status : shows the files that have been modified compared to the last commit... either the new
+	     or the erased + the files that will be committed.
+
+git add : select the new data shown in the previous command to be committed in the next command
+
+git commit -m "message" : commit changes of the repo.
+
+git checkout -name- . : returns/restore the repo to the last commit.
+
+git clone path : clones an existing repo through the github link
+
+gir remote -v : shows the path to where git thinks we want to push the changes. If we try to push
+		a clonned repo, then the remote will display the path of where it was clonned.
+
+git remote set-url origin "url" : set the path of our repo to commit the changes.
+
+git push origin master : to commit the changes into the github server (first push)
+
+git branch "name" : creates a new branch
+
+git branch checkout "name" : change the branch
+
+git merge -branch- : merges the branch into the master. The master have to me highlighted as the checkout branch
+
+
+to avoid setting the username and the password everytime a push is called: 
+https://help.github.com/en/articles/caching-your-github-password-in-git
+
+
+Jupyter notebooks extension (JSON) can't be merged using only git, therefore:
+===========================================================================
+nbdime installation
+pip install nbdime
+
+Configure Git to use the nbdime
+git-nbdiffdriver config --enable --global
+git-nbmergedriver config --enable --global
+
+On web-based GUI
+git-nbdifftool config --enable --global
+git-nbmergetool config --enable --global
+
+Source: https://test-nbdime.readthedocs.io/en/latest/
+
+=======================
+-- Without testing --
+=======================
+Make a script with the content of the environment
+conda list --export > requirements.txt (Rafael has one.. but it's for a 64 bits structure [Github])
+	V
+Build an environment from the script
+conda env create -f requirements-to-freeze.txt
