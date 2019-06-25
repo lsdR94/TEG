@@ -2,7 +2,7 @@
 Conda installation
 ====================
 Update conda
-conda update --prefix /home/usuario/anaconda3 anaconda
+conda update --prefix /home/lsd/anaconda3 anaconda
 
 =========================
 Environments management
@@ -70,6 +70,24 @@ Pytest installation
 =====================
 pip install pytest
 
+=============
+New Widgets
+=============
+
+Panel installation
+====================
+conda install -c pyviz panel (Doesn't work. Conda installs an older version -> 0.4.0)
+pip isntall panel==0.6.0
+
+hvplot installation
+=====================
+conda install -c pyviz hvplot
+
+nodejs v8 (32 b) installation (A problem with pandas comes after installing the last one)
+========================================================================
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+https://github.com/nodesource/distributions/blob/master/README.md
 
 ===============================
 List of the compiled packages
@@ -142,4 +160,10 @@ Make a script with the content of the environment
 conda list --export > requirements.txt (Rafael has one.. but it's for a 64 bits structure [Github])
 	V
 Build an environment from the script
-conda env create -f requirements-to-freeze.txt
+conda env create -f requirements.txt
+
+
+$ env1/bin/pip freeze > requirements.txt
+$ env2/bin/pip install -r requirements.txt
+
+
