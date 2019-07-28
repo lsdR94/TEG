@@ -27,6 +27,10 @@ conda create --name myclone --clone myenv
 Installation of modules and libraries
 =======================================
 
+Datashader (Intall this first... otherwise pandas is not going to work)
+============
+conda install datashader
+
 Segyio installation  (the pip install method doesn't work in 32 bits structures)
 ===================================================================================
 pip install Cmake
