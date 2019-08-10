@@ -38,6 +38,10 @@ pip install numpy
 pip install setuptools
 pip install setuptools-scm
 
+Pytest installation
+=====================
+pip install pytest
+
 ** base environment
 git clone https://github.com/equinor/segyio
 mkdir segyio/build
@@ -58,7 +62,7 @@ make install
 pip install segyio
 
 
-Bokeh installation
+Bokeh installation (not anymore)
 ====================
 pip install bokeh
 
@@ -66,9 +70,7 @@ Holoviews installation
 ========================
 pip install "holoviews[recommended]"
 
-Pytest installation
-=====================
-pip install pytest
+
 
 =============
 New Widgets
